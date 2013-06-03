@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8">
+  <title>Continuous paint</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: helvetica,arial,sans-serif;
+    }
+    canvas {
+      display: block;
+      background: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas></canvas>
+<script>
+
+var c = document.querySelector('canvas');
+var cx = c.getContext('2d');
+var mousedown = false;
+var oldx = null;
+var oldy = null;
+
+function setupCanvas() {
+  c.height = 480;
+  c.width = 320;
+  cx.lineWidth = 20;
+  cx.lineCap = 'round';
+  cx.strokeStyle = 'rgb(0, 0, 50)';
+}
+function onmousedown(ev) {
+  mousedown = true;
+  ev.preventDefault();
+}
+function onmouseup(ev) {
+  mousedown = false;
+  ev.preventDefault();
+}
+function onmousemove(ev) {
+  var x = ev.clientX;
+  var y = ev.clientY;
+  if (mousedown) {
+    paint(x, y);
+  } 
+}
+function paint(x, y) {
+  cx.beginPath();
+  if (oldx > 0 && oldy > 0) {
+    cx.moveTo(oldx, oldy);
+  }
+  cx.lineTo(x, y);
+  cx.stroke();
+  cx.closePath();
+  oldx = x;
+  oldy = y;
+}
+
+c.addEventListener('mousedown', onmousedown, false);
+c.addEventListener('mouseup', onmouseup, false);
+c.addEventListener('mousemove', onmousemove, false);
+
+setupCanvas();
+</script>  
+</body>
+</html>
