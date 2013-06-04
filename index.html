@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8">
+  <title>Simple paint example</title>
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: helvetica,arial,sans-serif;
+    }
+    nav {
+      display: block;
+      float: left;
+      width: 150px;
+    }
+    nav a {
+      text-decoration: none;
+      display: block;
+      padding: 2px 10px;
+    }
+    nav a:focus {
+      color: #666;
+      background: linear-gradient(to left, #ccc , #fff);
+
+    }
+    iframe {
+      display: block;
+      float: left;
+      border: none;
+    }
+    iframe[name] {
+      width: 320px;
+      height: 480px;
+      box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
+<nav><ol>
+  <li><a href="01-paint.html" target="show">Paint</a></li>
+  <li><a href="02-paint-with-mousedown.html" target="show">Mousedown</a></li>
+  <li><a href="03-continuous-paint.html" target="show">Continuous</a></li>
+  <li><a href="04-letter.html" target="show">Letter</a></li>
+  <li><a href="05-stay-in-letter.html" target="show">Stay in Letter</a></li>
+  <li><a href="06-compare.html" target="show">Compare</a></li>
+</ol></nav>
+<iframe name="show"></iframe>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/9rsDNifGods?rel=0" frameborder="0" allowfullscreen></iframe>
+
+</body>
+</html>
