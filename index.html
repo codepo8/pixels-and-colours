@@ -13,17 +13,39 @@
     nav {
       display: block;
       float: left;
-      width: 150px;
+      width: 200px;
     }
     nav a {
       text-decoration: none;
       display: block;
       padding: 2px 10px;
+      color: #333;
     }
     nav a:focus {
-      color: #666;
-      background: linear-gradient(to left, #ccc , #fff);
+      color: #000;
+      background: #ccc;
 
+    }
+    nav li {
+      list-style: none;
+      position: relative;
+      padding: .5em 0;
+    }
+    nav ol {
+        counter-reset:list;
+      }
+    nav li:before {
+      counter-increment:list;
+      content:counter(list);
+      position: absolute;
+      left: -.8em;
+      top: .5em;
+      border-radius: 50% 50%;
+      background: #ccc;
+      width: 1.3em;
+      height: 1.3em;
+      text-align: center;
+      line-height: 1.3em;
     }
     iframe {
       display: block;
