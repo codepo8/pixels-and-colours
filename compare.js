@@ -39,7 +39,8 @@
       showerror('you are outside');
     } else {
       cx.beginPath();
-      if (oldx > 0 && oldy > 0) {
+      if ((oldx > 0 && oldy > 0) &&
+          (Math.abs(oldx - x) < cx.lineWidth / 2 && Math.abs(oldy - y) < cx.lineWidth / 2)) {
         cx.moveTo(oldx, oldy);
       }
       cx.lineTo(x, y);
